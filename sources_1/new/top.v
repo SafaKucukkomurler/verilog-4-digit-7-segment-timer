@@ -1,24 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 01.01.2021 00:55:28
-// Design Name: 
-// Module Name: top
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module top(
 input clk,
@@ -37,9 +17,7 @@ output [3:0] anodes_o
                
     reg [19:0] saliseTimer = 20'b0;
     reg [6:0] saliseCount = 7'b0;
-    reg [5:0] saniyeCount = 6'b0;
-	
-	
+    reg [5:0] saniyeCount = 6'b0;	
     
     wire start_deb, reset_deb;
     debouncer start_debouncer(clk, start_i, start_deb);
