@@ -10,10 +10,7 @@ output [3:0] anodes_o
     
     localparam c_saliselim = 1000000,
                c_saliseCount_lim = 100,
-               c_saniyeCount_lim = 60,
-			   clock_freq = 100000000,
-			   debounce_time = 1000,
-			   initial_value = 1'b0;
+               c_saniyeCount_lim = 60;
                
     reg [31:0] c_timerlim_1ms = 32'd100000; //after success convert to localparam
     reg [31:0] timer_1ms = 32'b0;
@@ -23,8 +20,8 @@ output [3:0] anodes_o
     reg [5:0] saniyeCount = 6'b0;	
     
     wire start_deb, reset_deb;
-    debouncer #(.clock_freq(clock_freq), .debounce_time(debounce_time), .initial_value(initial_value)) start_debouncer(.clk(clk), .signal_i(start_i), .signal_o(start_deb));
-    debouncer #(.clock_freq(clock_freq), .debounce_time(debounce_time), .initial_value(initial_value)) reset_debouncer(.clk(clk), .signal_i(reset_i), .signal_o(reset_deb));
+    debouncer start_debouncer(clk, start_i, start_deb);
+    debouncer reset_debouncer(clk, reset_i, reset_deb);
     
     reg increment_salise = 1'b0, increment_saniye = 1'b0;
     wire [3:0] birler_salise, onlar_salise, birler_saniye, onlar_saniye; 
@@ -95,6 +92,7 @@ output [3:0] anodes_o
 		end
 	    else if (anodes[2] == 1'b0) begin
 		  seven_seg_o <= saniye_birler_7seg;
+		 // seven_seg_o(0) <= '0';
 		end
 	    else if (anodes[3] == 1'b0) begin	
 		  seven_seg_o <= saniye_onlar_7seg;
