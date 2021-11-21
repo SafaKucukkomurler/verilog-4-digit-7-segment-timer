@@ -1,24 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 31.12.2020 21:27:21
-// Design Name: 
-// Module Name: bcd_incrementor
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module bcd_incrementor(
 input clk,
@@ -28,7 +8,8 @@ output reg [3:0] birler_o, onlar_o
     );
     
     initial begin
-        birler_o = 4'b0; onlar_o = 4'b0;
+        birler_o = 4'b0; 
+        onlar_o = 4'b0;
     end
     
     parameter [3:0] birler_lim = 4'd9, onlar_lim = 4'd9;
