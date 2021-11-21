@@ -1,24 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 17.11.2020 00:01:04
-// Design Name: 
-// Module Name: seven_segment
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module seven_segment(
     input [3:0] sayac,
@@ -27,8 +7,7 @@ module seven_segment(
     
     always@ (sayac) begin
     
-        case (sayac)
-        
+        case (sayac)        
             4'd0: segment <= ~7'b0111111;
             4'd1: segment <= ~7'b0000110;
             4'd2: segment <= ~7'b1011011;
